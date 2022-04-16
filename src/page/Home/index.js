@@ -12,7 +12,7 @@ function Home() {
             <ContainerPedido>
                 <Img src={ImageCarry} alt="" />
 
-                <H1>Faça seu pedido</H1>
+                <H1>Faça seu pedido!</H1>
 
                 <FaçaSeuPedido>Pedido</FaçaSeuPedido>
 

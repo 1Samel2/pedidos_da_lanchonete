@@ -43,9 +43,10 @@ font-style: normal;
 font-weight: 700;
 font-size: 18px;
 line-height: 22px;
+letter-spacing: -0.408px;
 color: #EEEEEE;
 margin-top: 35px;
-margin-right: 150px;
+margin-right: 56px;
 
 `;
 
@@ -57,6 +58,12 @@ background: rgba(255, 255, 255, 0.25);
 border-radius: 14px;
 border: none;
 padding-left: 25px; 
+
+font-style: normal;
+font-weight: 300;
+font-size: 18px;
+line-height: 21px;
+
 
 
 `;
