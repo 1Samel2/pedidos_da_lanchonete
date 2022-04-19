@@ -82,6 +82,14 @@ font-size: 17px;
 line-height: 2px;
 margin-top: 35px;
 cursor: pointer;
+
+&:hover{
+    opacity: 0.8;
+}
+
+&:active{
+    background: #D93844;
+    }
 `;
 
 

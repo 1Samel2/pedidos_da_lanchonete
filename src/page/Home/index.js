@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import axios from 'axios'; /* sempre instalar o yarn add axios para conectar ao back-end */
 
@@ -13,9 +13,16 @@ import {
 
 function Home() {
 
-    const listaDePedido = [{ id: Math.random(), order: "Sorvete", clienteName: "Samuel" }
-    ]
-    console.log(listaDePedido);
+      const [listaDePedido, setListaDePedido] = useState([]);
+
+    function addNewOrder(){
+        
+         setListaDePedido([{id: Math.random(), order:"sanduiche", clienteName:"samuel"}]) 
+
+
+    } 
+
+
 
     return (
 
@@ -32,18 +39,16 @@ function Home() {
                 <FaçaSeuPedido>Nome do Cliente</FaçaSeuPedido>
                 <InputPedido placeholder="Steve Jobs" />
 
-                <ButtonPedido  >Novo Pedido</ButtonPedido>
+                <ButtonPedido  onClick={addNewOrder}  >Novo Pedido</ButtonPedido>
 
                 <CaixaDePedidos>
                     <ul>
-                    {listaDePedido.map((pedido) => (
+                        {listaDePedido.map((pedido) => (
+                        <Pedido key={pedido.id}>
 
-                            <Pedido key={pedido.id} >
-
-                                <p>{pedido.pedido}</p>  <p className="nameP" >{pedido.name}</p>
+                                <p> {pedido.order} </p>  <button> <img src={Trash} /> </button> <p> {pedido.clienteName} </p>  
                                 
-                                  <button> <img src={Trash} /> </button> 
-                            </Pedido>
+                        </Pedido>
                         ))}
                     </ul>
 
