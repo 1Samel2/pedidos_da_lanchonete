@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import Hamburguer from '../../assets/burger.svg'
 
@@ -8,9 +8,22 @@ function home() {
 
 
 
+<<<<<<< HEAD
     function addNewPedido(){
         alert('Pedido adicionado com sucesso!');
     }
+=======
+      const [listaDePedido, setListaDePedido] = useState([]);
+
+    function addNewOrder(){
+        
+         setListaDePedido([{id: Math.random(), order:"sanduiche", clienteName:"samuel"}]) 
+
+
+    } 
+
+
+>>>>>>> 184d0807c2699b5905b53d40e989269be73bd33f
 
 
     return( 
@@ -27,7 +40,29 @@ function home() {
 
 
 
+<<<<<<< HEAD
         </ContainerPedido>
+=======
+                <FaçaSeuPedido>Nome do Cliente</FaçaSeuPedido>
+                <InputPedido placeholder="Steve Jobs" />
+
+                <ButtonPedido  onClick={addNewOrder}  >Novo Pedido</ButtonPedido>
+
+                <CaixaDePedidos>
+                    <ul>
+                        {listaDePedido.map((pedido) => (
+                        <Pedido key={pedido.id}>
+
+                                <p> {pedido.order} </p>  <button> <img src={Trash} /> </button> <p> {pedido.clienteName} </p>  
+                                
+                        </Pedido>
+                        ))}
+                    </ul>
+
+                </CaixaDePedidos>
+
+            </ContainerPedido>
+>>>>>>> 184d0807c2699b5905b53d40e989269be73bd33f
         </Container>
 
     )
