@@ -1,30 +1,42 @@
-import React from 'react';
+import React, {useState, useRef} from 'react';
 
+import CarryBag from '../../assets/carryBag.svg'
 
-import ImageCarry from '../../assets/carryBag.svg';
+import Trash from '../../assets/trash.svg'
 
-import { Container, ContainerPedido, Img, H1, CaixaDePedidos,  ButtonPedido } from './styles';
+import { Container, ContainerPedido, Img, H1, ButtonPedido, CaixaDePedidos, Pedido } from './styles';
 
 function Home() {
+
+
+
+
     return (
 
         <Container>
             <ContainerPedido>
-                <Img src={ImageCarry} alt="" />
+                <Img src={CarryBag} />
+                <H1>Olá</H1>
+                     
+                        <ul>
+                        {listaDePedidos.map(orderPedidos => (
+                            <Pedido key={orderPedidos.id}>
+                                
+                            <CaixaDePedidos>
+                               <p>orderPedidos.order</p> <button ><img src={Trash} /></button>  <p className="nameP" >orderPedidos.clienteName</p>
+                              </CaixaDePedidos>
 
-                <H1>Pedidos!</H1>
-                <CaixaDePedidos>
+                            </Pedido>
+                              ))}
+                        </ul>                  
 
+
+                        <ButtonPedido >Adicionar</ButtonPedido>     
                     
-                </CaixaDePedidos>
-                
-              
-                <ButtonPedido>Novo Pedido</ButtonPedido>
-
             </ContainerPedido>
         </Container>
 
-    );
+    )
 }
 
 export default Home
