@@ -37,7 +37,7 @@ color: #FFFFFF;
 margin-top: 35px;
 `;
 
-export const FaçaSeuPedido = styled.p`
+export const LabelP = styled.p`
 
 font-style: normal;
 font-weight: 700;
