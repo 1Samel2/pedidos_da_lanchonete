@@ -100,7 +100,6 @@ height: 101px;
 background: rgba(255, 255, 255, 0.25);
 border-radius: 14px;
 
-
 `;
 
 export const Pedido = styled.li`
@@ -116,7 +115,9 @@ font-weight: 300;
 font-size: 18px;
 line-height: 21px;
 color: #FFFFFF; 
+margin-left: 20px;
 }
+
 
 .nameP{
 
@@ -129,11 +130,13 @@ color: #FFFFFF;
 
 
 button{
-    padding-left: 280px;
-    position: absolute;
     background: none;
     border: none;
-    cursor: pointer;
+    cursor: pointer;position: absolute;
+    position: absolute;
+    margin-left: 304px;
+    margin-top: -40px;
+
 }
 
 `;

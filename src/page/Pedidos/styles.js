@@ -37,37 +37,6 @@ color: #FFFFFF;
 margin-top: 35px;
 `;
 
-export const LabelP = styled.p`
-
-font-style: normal;
-font-weight: 700;
-font-size: 18px;
-line-height: 22px;
-letter-spacing: -0.408px;
-color: #EEEEEE;
-margin-top: 35px;
-margin-right: 56px;
-
-`;
-
-export const InputPedido = styled.input`
-
-width: 342px;
-height: 58px;
-background: rgba(255, 255, 255, 0.25);
-border-radius: 14px;
-border: none;
-padding-left: 25px; 
-
-font-style: normal;
-font-weight: 300;
-font-size: 18px;
-line-height: 21px;
-
-
-
-`;
-
 export const ButtonPedido = styled.button`
 
 background: #D93856;
@@ -100,7 +69,6 @@ height: 101px;
 background: rgba(255, 255, 255, 0.25);
 border-radius: 14px;
 
-
 `;
 
 export const Pedido = styled.li`
@@ -116,7 +84,9 @@ font-weight: 300;
 font-size: 18px;
 line-height: 21px;
 color: #FFFFFF; 
+margin-left: 20px;
 }
+
 
 .nameP{
 
@@ -129,11 +99,13 @@ color: #FFFFFF;
 
 
 button{
-    padding-left: 280px;
-    position: absolute;
     background: none;
     border: none;
-    cursor: pointer;
+    cursor: pointer;position: absolute;
+    position: absolute;
+    margin-left: 304px;
+    margin-top: -40px;
+
 }
 
 `;

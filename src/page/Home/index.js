@@ -1,30 +1,32 @@
-import React, {useState, useRef} from 'react';
+import React, { useState, useRef } from 'react';
+
+import { useNavigate } from 'react-router-dom';
 
 import Hamburguer from '../../assets/burger.svg'
 
 import Trash from '../../assets/trash.svg'
 
+import axios from 'axios'
+
 import { Container, ContainerPedido, Img, H1, LabelP, InputPedido, ButtonPedido, CaixaDePedidos, Pedido } from './styles';
 
 function Home() {
 
-    const [listaDePedidos, setlistaDePedidos] = useState([]);
+    const navigate = useNavigate()
+    const [listaDePedidos, setListaDePedidos] = useState([]);
     const inputPedido = useRef();
     const inputName = useRef();
 
 
-    function addNewPedido() {
-       /*  alert('Pedido adicionado com sucesso!') */
-        
-        setlistaDePedidos([
-            ...listaDePedidos, {
-                id: Math.random(),
-                order:inputPedido.current.value,
-                clienteName: inputName.current.value 
-    },])
+ async function addNewPedido() {
+        const {data: newRequest} = await axios.post("http://localhost:3001/order",
+         {order:inputPedido.current.value, clienteName:inputName.current.value})
+
+        setListaDePedidos([...listaDePedidos, newRequest])
+
+        navigate('/pedidos')
+
 }
-
-
 
     return (
 
@@ -33,7 +35,7 @@ function Home() {
                 <Img src={Hamburguer} />
                 <H1>Olá</H1>
                 <LabelP>Seu pedido</LabelP>
-                
+
                 <InputPedido ref={inputPedido} placeholder="Digite o nome do prato" />
 
                 <LabelP>Nome</LabelP>
@@ -41,21 +43,6 @@ function Home() {
                 <InputPedido ref={inputName} placeholder="Digite o nome do prato" />
 
                 <ButtonPedido onClick={addNewPedido} >Adicionar</ButtonPedido>
-
-                
-                        
-                        <ul>
-                        {listaDePedidos.map(orderPedidos => (
-                            <Pedido key={orderPedidos.id}>
-                                
-                            <CaixaDePedidos>
-                               <p>orderPedidos.order</p> <button ><img src={Trash} /></button>  <p className="nameP" >orderPedidos.clienteName</p>
-                              </CaixaDePedidos>
-
-                            </Pedido>
-                              ))}
-                        </ul>                       
-                    
             </ContainerPedido>
         </Container>
 
