@@ -2,13 +2,19 @@ import React, { useState, useRef, useEffect } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
-import Hamburguer from '../../assets/burger.svg'
+import Hamburguer from '../../assets/carryBag.svg'
+
+import OrderDePedidos from '../../Components/ContainerFilha'
+
+import H1 from '../../Components/Title'
+
+import ButtonPedido from '../../Components/Button'
 
 import Trash from '../../assets/trash.svg'
 
 import axios from 'axios'
 
-import { Container, ContainerPedido, Img, H1, ButtonPedido, CaixaDePedidos, Pedido } from './styles';
+import { Container, Img, CaixaDePedidos, Pedido, Button } from './styles';
 
 function Pedidos() {
 
@@ -27,13 +33,13 @@ function Pedidos() {
     async function addNewUser() {
 
         const { data: newRequest } = await axios.post('http://localhost:3001/order', {
-         order: inputPedido.current.value,
-          clienteName: inputName.value,  
+            order: inputPedido.current.value,
+            clienteName: inputName.value,
         })
         setListaDePedidos([...listaDePedidos, newRequest])
     }
 
-     useEffect(() => {
+    useEffect(() => {
         async function fetchOrder() {
             const { data: newRequest } = await axios.get('http://localhost:3001/order')
             setListaDePedidos(newRequest)
@@ -51,35 +57,48 @@ function Pedidos() {
         setListaDePedidos(newPedido)
     }
 
-    
-  function handleClick() {
-    navigate('/')
-    navigate(1)
-  }
+
+    function handleClick() {
+        navigate('/')
+        navigate(1)
+    }
 
     return (
 
         <Container>
-            <ContainerPedido>
-                <Img src={Hamburguer} />
-                <H1>Olá</H1>
+            <OrderDePedidos>
+                <Img src={Hamburguer} alt="Hamburguer" />
+                <H1>Pedidos</H1>
+
 
                 <ul>
+
                     {listaDePedidos.map(orderPedidos => (
                         <Pedido key={orderPedidos.id}>
 
                             <CaixaDePedidos>
-                                <p>{orderPedidos.order} </p>  <p className="nameP">{orderPedidos.clienteName} </p>
-                                <button onClick={() => deletePedido(orderPedidos.id)}
-                                ><img src={Trash} /></button>
+                                
+                                    <p>{orderPedidos.order} </p>
+
+                                    <Button onClick={() => deletePedido(orderPedidos.id)}>
+                                        <img src={Trash} alt="lata-de-lixo" />
+                                    </Button>
+
+                                    <p><strong>{orderPedidos.clienteName}</strong> </p>
+                                
                             </CaixaDePedidos>
 
                         </Pedido>
-                    ))}
-                </ul>
-                <ButtonPedido onClick={handleClick} >Adicionar</ButtonPedido>
 
-            </ContainerPedido>
+                    ))}
+
+                </ul>
+
+
+
+                <ButtonPedido isBack={true} onClick={handleClick}>Voltar</ButtonPedido>
+
+            </OrderDePedidos>
         </Container>
 
     )

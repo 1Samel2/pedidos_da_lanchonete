@@ -2,13 +2,17 @@ import React, { useState, useRef } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
-import Hamburguer from '../../assets/burger.svg'
+import OrderDePedidos from '../../Components/ContainerFilha'
 
-import Trash from '../../assets/trash.svg'
+import H1 from '../../Components/Title';
+
+import ButtonPedido from '../../Components/Button'
+
+import Hamburguer from '../../assets/burger.svg'
 
 import axios from 'axios'
 
-import { Container, ContainerPedido, Img, H1, LabelP, InputPedido, ButtonPedido, CaixaDePedidos, Pedido } from './styles';
+import { Container,  Img, LabelP, InputPedido,} from './styles';
 
 function Home() {
 
@@ -18,22 +22,24 @@ function Home() {
     const inputName = useRef();
 
 
- async function addNewPedido() {
-        const {data: newRequest} = await axios.post("http://localhost:3001/order",
-         {order:inputPedido.current.value, clienteName:inputName.current.value})
+    async function addNewPedido() {
+        const { data: newRequest } = await axios.post("http://localhost:3001/order",
+            { order: inputPedido.current.value, clienteName: inputName.current.value })
 
         setListaDePedidos([...listaDePedidos, newRequest])
 
         navigate('/pedidos')
 
-}
+    }
 
     return (
 
         <Container>
-            <ContainerPedido>
+            <OrderDePedidos>
+
                 <Img src={Hamburguer} />
-                <H1>Olá</H1>
+
+                <H1>Faça seu pedido!</H1>
                 <LabelP>Seu pedido</LabelP>
 
                 <InputPedido ref={inputPedido} placeholder="Digite o nome do prato" />
@@ -42,9 +48,9 @@ function Home() {
 
                 <InputPedido ref={inputName} placeholder="Digite o nome do prato" />
 
-                <ButtonPedido onClick={addNewPedido} >Adicionar</ButtonPedido>
-            </ContainerPedido>
-        </Container>
+                <ButtonPedido onClick={addNewPedido} >Novo Pedido</ButtonPedido>
+            </OrderDePedidos>
+        </Container >
 
     )
 }
