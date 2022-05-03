@@ -78,7 +78,7 @@ function Pedidos() {
 
                             <CaixaDePedidos>
                                 
-                                    <p>{orderPedidos.order} </p>
+                                    <p className="nomePedido" >{orderPedidos.order} </p>
 
                                     <Button onClick={() => deletePedido(orderPedidos.id)}>
                                         <img src={Trash} alt="lata-de-lixo" />

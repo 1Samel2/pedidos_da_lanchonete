@@ -34,6 +34,8 @@ background: rgba(255, 255, 255, 0.25);
 border-radius: 14px;
 margin-top: 16px;
 
+
+
 `;
 
 export const Button = styled.button`
@@ -51,17 +53,21 @@ list-style-type: none;
 
 
 p{
+
 font-style: normal;
 font-weight: 300;
 font-size: 18px;
 line-height: 21px;
 color: #FFFFFF;
-
 margin-left:25px;
-margin-top: 17px;
-
-    
-
+overflow-wrap: break-word;
 }
 
+.nomePedido{
+    padding-top:10px;
+}
+
+
 `;
+
+
